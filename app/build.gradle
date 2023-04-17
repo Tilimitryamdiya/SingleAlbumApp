@@ -21,6 +21,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders.usesCleartextTraffic = false
+            buildConfigField "String", "BASE_URL", '"https://raw.githubusercontent.com/netology-code/andad-homeworks/master/09_multimedia/data/"'
+        }
+        debug {
+            manifestPlaceholders.usesCleartextTraffic = true
+            buildConfigField "String", "BASE_URL", '"https://raw.githubusercontent.com/netology-code/andad-homeworks/master/09_multimedia/data/"'
         }
     }
     compileOptions {
@@ -37,11 +43,36 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    def core_version = "1.9.0"
+    def appcompat_version = "1.6.1"
+    def mdc_version = "1.8.0"
+    def constraintlayout_version = "2.1.4"
+    def fragment_version = "1.5.6"
+
+    def junit_version = "4.13.2"
+    def ext_junit_version = "1.1.5"
+    def espresso_core_version = "3.5.1"
+
+    def retrofit_version = "2.9.0"
+    def retrofitgson_version = "2.9.0"
+    def lifecycle_version="2.5.1"
+
+    implementation "androidx.core:core-ktx:$core_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "com.google.android.material:material:$mdc_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+
+    // Fragment version for viewModels()
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitgson_version"
+
+    // Coroutine scope
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
 }

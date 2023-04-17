@@ -6,58 +6,122 @@
     android:layout_height="match_parent"
     tools:context=".ui.AppActivity">
 
-    <TextView
-        android:id="@+id/header_album"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/album"
+        android:paddingHorizontal="@dimen/common_spacing"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/header_album"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/common_spacing"
+            android:text="@string/album"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/album_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/header_album"
+            tools:text="One More Light Live" />
+
+        <TextView
+            android:id="@+id/header_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/artist"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/album_title" />
+
+        <Space
+            android:id="@+id/spacer_artist"
+            android:layout_width="@dimen/spacer"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/header_artist"
+            app:layout_constraintTop_toBottomOf="@id/album_title" />
+
+        <TextView
+            android:id="@+id/artist_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/spacer_artist"
+            app:layout_constraintTop_toBottomOf="@id/album_title"
+            tools:text="Linkin Park" />
+
+        <TextView
+            android:id="@+id/album_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/artist_title"
+            tools:text="2017" />
+
+        <Space
+            android:id="@+id/spacer_year"
+            android:layout_width="@dimen/spacer"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/album_year"
+            app:layout_constraintTop_toBottomOf="@id/artist_title" />
+
+        <TextView
+            android:id="@+id/music_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/spacer_year"
+            app:layout_constraintTop_toBottomOf="@id/artist_title"
+            tools:text="alternative" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/header_play_button"
+            style="@style/Widget.AppTheme.PlayPauseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:contentDescription="@string/play_button"
+            app:layout_constraintStart_toStartOf="@id/album_year"
+            app:layout_constraintTop_toBottomOf="@id/album_year" />
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/header_play_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/header_play_button"
+            app:layout_constraintTop_toTopOf="@id/header_play_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/album_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/header_album"
-        tools:text="One More Light Live" />
-
-    <TextView
-        android:id="@+id/header_artist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/artist"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/album_title" />
-
-    <TextView
-        android:id="@+id/artist_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/header_artist"
-        app:layout_constraintTop_toBottomOf="@id/album_title"
-        tools:text="Linkin Park" />
-
-    <TextView
-        android:id="@+id/album_year"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/artist_title"
-        tools:text="2017" />
-
-    <TextView
-        android:id="@+id/music_genre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/album_year"
-        app:layout_constraintTop_toBottomOf="@id/artist_title"
-        tools:text="Alternative"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/music_genre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header"
         tools:listitem="@layout/card_track" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

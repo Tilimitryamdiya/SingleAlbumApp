@@ -32,7 +32,9 @@ class TrackViewHolder(
     fun bind(track: Track) {
         binding.track.text = track.file
 
-        binding.likeButton.setOnClickListener {
+        binding.playButton.isChecked = track.isPlaying
+
+        binding.playButton.setOnClickListener {
             listener.onPlayPause(track)
         }
     }

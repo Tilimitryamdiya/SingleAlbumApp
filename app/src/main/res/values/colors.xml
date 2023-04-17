@@ -8,5 +8,6 @@
     <color name="purple_dark">#2C2A59</color>
     <color name="purple_light">#5A56BF</color>
     <color name="yellow_light">#F2E18D</color>
+    <color name="transparent">#00000000</color>
 
 </resources>

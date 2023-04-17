@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">SingleAlbumApp</string>
     <string name="album">Album</string>
-    <string name="artist">Artist</string>
+    <string name="artist">Artist: </string>
+    <string name="play_button">Play button</string>
+
+    <string name="error_loading">Something went wrong. Try again later</string>
+    <string name="retry_loading">Retry</string>
 </resources>

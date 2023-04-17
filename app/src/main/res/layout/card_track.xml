@@ -7,14 +7,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/common_spacing">
+        android:layout_height="wrap_content">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/play_button"
             style="@style/Widget.AppTheme.PlayPauseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -23,31 +23,12 @@
             android:id="@+id/track"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/play_button"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Song" />
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/like_button"
-            style="@style/Widget.AppTheme.LikeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/track_duration"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/track_duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="1:00" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
