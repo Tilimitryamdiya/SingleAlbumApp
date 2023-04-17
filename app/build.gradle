@@ -53,9 +53,7 @@ dependencies {
     def ext_junit_version = "1.1.5"
     def espresso_core_version = "3.5.1"
 
-    def retrofit_version = "2.9.0"
     def retrofitgson_version = "2.9.0"
-    def lifecycle_version="2.5.1"
 
     implementation "androidx.core:core-ktx:$core_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
@@ -66,11 +64,7 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
     // Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitgson_version"
-
-    // Coroutine scope
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
